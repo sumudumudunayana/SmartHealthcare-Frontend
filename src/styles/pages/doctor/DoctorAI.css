@@ -139,7 +139,8 @@
   color: #1e293b;
   font: inherit;
   outline: none;
-  transition: border-color 0.2s ease,
+  transition:
+    border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -176,7 +177,8 @@
   font: inherit;
   font-weight: 650;
   cursor: pointer;
-  transition: transform 0.15s ease,
+  transition:
+    transform 0.15s ease,
     opacity 0.15s ease,
     box-shadow 0.15s ease;
 }
@@ -379,8 +381,7 @@
   gap: 16px;
 }
 
-.smarthealth-doctor-ai-triage-form
-  .smarthealth-doctor-ai-primary-button {
+.smarthealth-doctor-ai-triage-form .smarthealth-doctor-ai-primary-button {
   align-self: flex-start;
 }
 
