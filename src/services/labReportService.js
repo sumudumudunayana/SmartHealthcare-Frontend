@@ -7,17 +7,12 @@ const labReportService = {
   },
 
   getByRecord: async (recordId) => {
-    const response = await api.get(
-      `/LabReports/record/${recordId}`
-    );
+    const response = await api.get(`/LabReports/record/${recordId}`);
     return response.data;
   },
 
   create: async (reportData) => {
-    const response = await api.post(
-      "/LabReports",
-      reportData
-    );
+    const response = await api.post("/LabReports", reportData);
     return response.data;
   },
 };
