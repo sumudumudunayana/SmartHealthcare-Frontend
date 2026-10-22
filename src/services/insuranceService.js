@@ -11,18 +11,13 @@ const insuranceService = {
   },
 
   getPolicyById: async (insurancePolicyId) => {
-    const response = await api.get(
-      `/InsurancePolicies/${insurancePolicyId}`
-    );
+    const response = await api.get(`/InsurancePolicies/${insurancePolicyId}`);
 
     return response.data;
   },
 
   createPolicy: async (policyData) => {
-    const response = await api.post(
-      "/InsurancePolicies",
-      policyData
-    );
+    const response = await api.post("/InsurancePolicies", policyData);
 
     return response.data;
   },
@@ -32,18 +27,13 @@ const insuranceService = {
   // ============================================================
 
   getClaimsByBill: async (billId) => {
-    const response = await api.get(
-      `/InsuranceClaims/bill/${billId}`
-    );
+    const response = await api.get(`/InsuranceClaims/bill/${billId}`);
 
     return response.data;
   },
 
   createClaim: async (claimData) => {
-    const response = await api.post(
-      "/InsuranceClaims",
-      claimData
-    );
+    const response = await api.post("/InsuranceClaims", claimData);
 
     return response.data;
   },
