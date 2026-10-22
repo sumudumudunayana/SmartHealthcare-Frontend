@@ -5,9 +5,7 @@ const doctorScheduleService = {
   // GET SCHEDULES FOR A DOCTOR
   // ============================================================
   getByDoctorId: async (doctorId) => {
-    const response = await api.get(
-      `/DoctorSchedules/doctor/${doctorId}`
-    );
+    const response = await api.get(`/DoctorSchedules/doctor/${doctorId}`);
 
     return response.data;
   },
@@ -16,10 +14,7 @@ const doctorScheduleService = {
   // CREATE DOCTOR SCHEDULE
   // ============================================================
   create: async (scheduleData) => {
-    const response = await api.post(
-      "/DoctorSchedules",
-      scheduleData
-    );
+    const response = await api.post("/DoctorSchedules", scheduleData);
 
     return response.data;
   },
@@ -30,7 +25,7 @@ const doctorScheduleService = {
   update: async (scheduleId, scheduleData) => {
     const response = await api.put(
       `/DoctorSchedules/${scheduleId}`,
-      scheduleData
+      scheduleData,
     );
 
     return response.data;
@@ -40,9 +35,7 @@ const doctorScheduleService = {
   // DELETE DOCTOR SCHEDULE
   // ============================================================
   delete: async (scheduleId) => {
-    const response = await api.delete(
-      `/DoctorSchedules/${scheduleId}`
-    );
+    const response = await api.delete(`/DoctorSchedules/${scheduleId}`);
 
     return response.data;
   },
