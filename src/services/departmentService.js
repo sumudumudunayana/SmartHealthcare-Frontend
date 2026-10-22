@@ -7,10 +7,7 @@ const departmentService = {
   },
 
   create: async (departmentData) => {
-    const response = await api.post(
-      "/Departments",
-      departmentData
-    );
+    const response = await api.post("/Departments", departmentData);
 
     return response.data;
   },
