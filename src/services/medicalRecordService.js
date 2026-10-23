@@ -10,17 +10,14 @@ const medicalRecordService = {
   // Get a medical record for a specific appointment
   getByAppointment: async (appointmentId) => {
     const response = await api.get(
-      `/MedicalRecords/appointment/${appointmentId}`
+      `/MedicalRecords/appointment/${appointmentId}`,
     );
     return response.data;
   },
 
   // Create a medical record
   create: async (recordData) => {
-    const response = await api.post(
-      "/MedicalRecords",
-      recordData
-    );
+    const response = await api.post("/MedicalRecords", recordData);
     return response.data;
   },
 };
