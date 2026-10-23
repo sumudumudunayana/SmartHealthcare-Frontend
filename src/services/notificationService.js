@@ -12,18 +12,13 @@ const notificationService = {
   },
 
   markAsRead: async (notificationId) => {
-    const response = await api.patch(
-      `/Notifications/${notificationId}/read`
-    );
+    const response = await api.patch(`/Notifications/${notificationId}/read`);
 
     return response.data;
   },
 
   create: async (notificationData) => {
-    const response = await api.post(
-      "/Notifications",
-      notificationData
-    );
+    const response = await api.post("/Notifications", notificationData);
 
     return response.data;
   },
