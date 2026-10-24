@@ -7,10 +7,7 @@ const specializationService = {
   },
 
   create: async (specializationData) => {
-    const response = await api.post(
-      "/Specializations",
-      specializationData
-    );
+    const response = await api.post("/Specializations", specializationData);
 
     return response.data;
   },
