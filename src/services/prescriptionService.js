@@ -7,17 +7,12 @@ const prescriptionService = {
   },
 
   getByRecord: async (recordId) => {
-    const response = await api.get(
-      `/Prescriptions/record/${recordId}`
-    );
+    const response = await api.get(`/Prescriptions/record/${recordId}`);
     return response.data;
   },
 
   create: async (prescriptionData) => {
-    const response = await api.post(
-      "/Prescriptions",
-      prescriptionData
-    );
+    const response = await api.post("/Prescriptions", prescriptionData);
     return response.data;
   },
 };
