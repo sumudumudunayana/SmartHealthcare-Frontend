@@ -31,10 +31,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       ====================================================== */}
 
       {isOpen && (
-        <div
-          className="smarthealth-sidebar-overlay"
-          onClick={onClose}
-        ></div>
+        <div className="smarthealth-sidebar-overlay" onClick={onClose}></div>
       )}
 
       {/* =====================================================
@@ -46,15 +43,12 @@ const Sidebar = ({ isOpen, onClose }) => {
           isOpen ? "smarthealth-sidebar-open" : ""
         }`}
       >
-
         {/* ===================================================
             SIDEBAR HEADER
         ==================================================== */}
 
         <div className="smarthealth-sidebar-header">
-
           <div className="smarthealth-sidebar-brand">
-
             <div className="smarthealth-sidebar-logo">
               <span>+</span>
             </div>
@@ -63,9 +57,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               <strong>SmartHealthcare</strong>
               <span>Management System</span>
             </div>
-
           </div>
-
 
           {/* Mobile Close Button */}
 
@@ -77,16 +69,13 @@ const Sidebar = ({ isOpen, onClose }) => {
           >
             ×
           </button>
-
         </div>
-
 
         {/* ===================================================
             ROLE INFORMATION
         ==================================================== */}
 
         <div className="smarthealth-sidebar-user">
-
           <div className="smarthealth-sidebar-user-avatar">
             {user?.fullName
               ? user.fullName
@@ -99,53 +88,33 @@ const Sidebar = ({ isOpen, onClose }) => {
           </div>
 
           <div className="smarthealth-sidebar-user-info">
+            <strong>{user?.fullName || "User"}</strong>
 
-            <strong>
-              {user?.fullName || "User"}
-            </strong>
-
-            <span>
-              {user?.role || "User"}
-            </span>
-
+            <span>{user?.role || "User"}</span>
           </div>
-
         </div>
-
 
         {/* ===================================================
             NAVIGATION
         ==================================================== */}
 
         <nav className="smarthealth-sidebar-navigation">
-
           {renderSidebarContent()}
-
         </nav>
-
 
         {/* ===================================================
             SIDEBAR FOOTER
         ==================================================== */}
 
         <div className="smarthealth-sidebar-footer">
-
           <div className="smarthealth-sidebar-footer-status">
-
             <span className="smarthealth-sidebar-status-dot"></span>
 
-            <span>
-              System Online
-            </span>
-
+            <span>System Online</span>
           </div>
 
-          <span className="smarthealth-sidebar-version">
-            v1.0.0
-          </span>
-
+          <span className="smarthealth-sidebar-version">v1.0.0</span>
         </div>
-
       </aside>
     </>
   );
