@@ -135,7 +135,6 @@ const ReceptionistSidebar = ({ onNavigate }) => {
         </NavLink>
       </div>
 
-
       <span className="smarthealth-sidebar-section-title">AI AGENT HELP </span>
       <NavLink
         to="/receptionist/ai-billing"
