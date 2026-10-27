@@ -28,7 +28,6 @@ const DoctorAI = () => {
 
   const [approvalComments, setApprovalComments] = useState({});
 
-
   useEffect(() => {
     loadDoctorAppointments();
     loadPendingApprovals();
