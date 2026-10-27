@@ -25,10 +25,7 @@ const Specializations = () => {
 
       setSpecializations(data || []);
     } catch (error) {
-      console.error(
-        "Failed to load specializations:",
-        error
-      );
+      console.error("Failed to load specializations:", error);
 
       const message =
         error.response?.data?.message ||
@@ -49,9 +46,7 @@ const Specializations = () => {
     }
 
     return specializations.filter((specialization) =>
-      specialization.name
-        ?.toLowerCase()
-        .includes(term)
+      specialization.name?.toLowerCase().includes(term),
     );
   }, [specializations, searchTerm]);
 
@@ -68,27 +63,19 @@ const Specializations = () => {
     setCreating(true);
 
     try {
-      const created =
-        await specializationService.create({
-          name,
-        });
+      const created = await specializationService.create({
+        name,
+      });
 
       setSpecializations((current) =>
-        [...current, created].sort((a, b) =>
-          a.name.localeCompare(b.name)
-        )
+        [...current, created].sort((a, b) => a.name.localeCompare(b.name)),
       );
 
       setSpecializationName("");
 
-      toast.success(
-        "Specialization created successfully."
-      );
+      toast.success("Specialization created successfully.");
     } catch (error) {
-      console.error(
-        "Failed to create specialization:",
-        error
-      );
+      console.error("Failed to create specialization:", error);
 
       const message =
         error.response?.data?.message ||
@@ -103,13 +90,11 @@ const Specializations = () => {
 
   return (
     <div className="smarthealth-admin-specializations">
-
       {/* =====================================================
           PAGE HEADER
       ====================================================== */}
 
       <section className="smarthealth-admin-specializations-header">
-
         <div>
           <span className="smarthealth-admin-specializations-eyebrow">
             Management
@@ -118,8 +103,8 @@ const Specializations = () => {
           <h1>Specializations</h1>
 
           <p>
-            Manage the medical specializations available
-            in the healthcare system.
+            Manage the medical specializations available in the healthcare
+            system.
           </p>
         </div>
 
@@ -127,7 +112,6 @@ const Specializations = () => {
           <span>Total</span>
           <strong>{specializations.length}</strong>
         </div>
-
       </section>
 
       {/* =====================================================
@@ -135,24 +119,18 @@ const Specializations = () => {
       ====================================================== */}
 
       <section className="smarthealth-admin-specializations-content">
-
         {/* ===================================================
             ADD SPECIALIZATION
         ==================================================== */}
 
         <div className="smarthealth-admin-specialization-form-card">
-
           <div className="smarthealth-admin-specialization-form-header">
-            <div className="smarthealth-admin-specialization-form-icon">
-              +
-            </div>
+            <div className="smarthealth-admin-specialization-form-icon">+</div>
 
             <div>
               <h2>Add Specialization</h2>
 
-              <p>
-                Create a new medical specialization.
-              </p>
+              <p>Create a new medical specialization.</p>
             </div>
           </div>
 
@@ -161,25 +139,17 @@ const Specializations = () => {
             onSubmit={handleSubmit}
           >
             <div className="smarthealth-admin-specialization-field">
-
-              <label htmlFor="specializationName">
-                Specialization Name
-              </label>
+              <label htmlFor="specializationName">Specialization Name</label>
 
               <input
                 id="specializationName"
                 type="text"
                 value={specializationName}
-                onChange={(event) =>
-                  setSpecializationName(
-                    event.target.value
-                  )
-                }
+                onChange={(event) => setSpecializationName(event.target.value)}
                 placeholder="e.g. Cardiology"
                 maxLength={100}
                 disabled={creating}
               />
-
             </div>
 
             <button
@@ -199,9 +169,7 @@ const Specializations = () => {
                 </>
               )}
             </button>
-
           </form>
-
         </div>
 
         {/* ===================================================
@@ -209,28 +177,20 @@ const Specializations = () => {
         ==================================================== */}
 
         <div className="smarthealth-admin-specializations-list-card">
-
           <div className="smarthealth-admin-specializations-list-header">
-
             <div>
               <h2>All Specializations</h2>
 
-              <p>
-                View and search registered medical
-                specializations.
-              </p>
+              <p>View and search registered medical specializations.</p>
             </div>
 
             <div className="smarthealth-admin-specializations-search">
-
               <span>⌕</span>
 
               <input
                 type="text"
                 value={searchTerm}
-                onChange={(event) =>
-                  setSearchTerm(event.target.value)
-                }
+                onChange={(event) => setSearchTerm(event.target.value)}
                 placeholder="Search specializations..."
               />
 
@@ -243,9 +203,7 @@ const Specializations = () => {
                   ×
                 </button>
               )}
-
             </div>
-
           </div>
 
           {/* =================================================
@@ -254,67 +212,47 @@ const Specializations = () => {
 
           {loading ? (
             <div className="smarthealth-admin-specializations-loading">
-
               <div className="smarthealth-admin-specializations-spinner"></div>
 
-              <p>
-                Loading specializations...
-              </p>
-
+              <p>Loading specializations...</p>
             </div>
           ) : filteredSpecializations.length === 0 ? (
-
             /* ===============================================
                EMPTY STATE
             ================================================ */
 
             <div className="smarthealth-admin-specializations-empty">
-
               <div className="smarthealth-admin-specializations-empty-icon">
                 ✦
               </div>
 
               {searchTerm ? (
                 <>
-                  <h3>
-                    No matching specializations
-                  </h3>
+                  <h3>No matching specializations</h3>
 
-                  <p>
-                    No specialization matches "{searchTerm}".
-                  </p>
+                  <p>No specialization matches "{searchTerm}".</p>
 
-                  <button
-                    type="button"
-                    onClick={() => setSearchTerm("")}
-                  >
+                  <button type="button" onClick={() => setSearchTerm("")}>
                     Clear Search
                   </button>
                 </>
               ) : (
                 <>
-                  <h3>
-                    No specializations found
-                  </h3>
+                  <h3>No specializations found</h3>
 
                   <p>
-                    Add your first medical specialization
-                    using the form above.
+                    Add your first medical specialization using the form above.
                   </p>
                 </>
               )}
-
             </div>
           ) : (
-
             /* ===============================================
                TABLE
             ================================================ */
 
             <div className="smarthealth-admin-specializations-table-wrapper">
-
               <table className="smarthealth-admin-specializations-table">
-
                 <thead>
                   <tr>
                     <th>#</th>
@@ -324,56 +262,37 @@ const Specializations = () => {
                 </thead>
 
                 <tbody>
+                  {filteredSpecializations.map((specialization, index) => (
+                    <tr key={specialization.specializationId}>
+                      <td>
+                        <span className="smarthealth-admin-specialization-number">
+                          {index + 1}
+                        </span>
+                      </td>
 
-                  {filteredSpecializations.map(
-                    (specialization, index) => (
-                      <tr
-                        key={
-                          specialization.specializationId
-                        }
-                      >
-
-                        <td>
-                          <span className="smarthealth-admin-specialization-number">
-                            {index + 1}
+                      <td>
+                        <div className="smarthealth-admin-specialization-name">
+                          <span className="smarthealth-admin-specialization-icon">
+                            ✦
                           </span>
-                        </td>
 
-                        <td>
-                          <div className="smarthealth-admin-specialization-name">
+                          <strong>{specialization.name}</strong>
+                        </div>
+                      </td>
 
-                            <span className="smarthealth-admin-specialization-icon">
-                              ✦
-                            </span>
-
-                            <strong>
-                              {specialization.name}
-                            </strong>
-
-                          </div>
-                        </td>
-
-                        <td>
-                          <span className="smarthealth-admin-specialization-id">
-                            {specialization.specializationId}
-                          </span>
-                        </td>
-
-                      </tr>
-                    )
-                  )}
-
+                      <td>
+                        <span className="smarthealth-admin-specialization-id">
+                          {specialization.specializationId}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
-
               </table>
-
             </div>
           )}
-
         </div>
-
       </section>
-
     </div>
   );
 };
